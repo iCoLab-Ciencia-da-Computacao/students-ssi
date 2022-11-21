@@ -6,7 +6,7 @@ const crypto = require("crypto");
 require("dotenv").config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use(express.static("static"));
 
@@ -21,7 +21,7 @@ app.post("/api/callback", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("server running on port 8080");
+  console.log("server running on port", port);
 });
 
 // Create a map to store the auth requests and their session IDs
